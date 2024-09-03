@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    networks:
+      - default-network
+    environment:
+      - DATABASE_SCHEME=postgresql
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=fastapi
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:13.16
+    restart: always
+    environment:
+      POSTGRES_DB: fastapi
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - default-network
+networks:
+  default-network:
+    name: fastapi-network
+    driver: bridge
+volumes:
+  pg_data:

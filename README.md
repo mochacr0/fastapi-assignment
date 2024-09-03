@@ -10,7 +10,8 @@
 
 ## Interactive API Documentation
 
-![screencapture-localhost-8000-docs-2024-09-03-14_43_18](https://github.com/user-attachments/assets/2a65fc93-e7e8-4854-9753-3c4ebbdf7e8e)
+![screencapture-localhost-8000-docs-2024-09-03-14_43_18](https://github.com/user-attachments/assets/04f88e6c-67ba-406f-af5a-5570ebf70a7f)
+
 
 ## How To Run
 

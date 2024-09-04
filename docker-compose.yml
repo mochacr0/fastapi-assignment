@@ -3,16 +3,17 @@ services:
   fastapi:
     build: .
     ports:
-      - "8000:8000"
+      - "${FASTAPI_PORT}:${FASTAPI_PORT}"
     networks:
       - default-network
     environment:
-      - DATABASE_SCHEME=postgresql
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=postgres
-      - DATABASE_HOST=postgres
-      - DATABASE_PORT=5432
-      - DATABASE_NAME=fastapi
+      DATABASE_SCHEME: ${DATABASE_SCHEME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      FASTAPI_PORT: ${FASTAPI_PORT}
     depends_on:
       postgres:
         condition: service_healthy
@@ -20,11 +21,9 @@ services:
     image: postgres:13.16
     restart: always
     environment:
-      POSTGRES_DB: fastapi
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports:
-      - "5432:5432"
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - pg_data:/var/lib/postgresql/data
     networks:

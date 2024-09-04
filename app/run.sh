@@ -17,4 +17,4 @@ fi
 
 # run gunicorn
 #exec gunicorn --bind $HOST:$PORT "$APP_MODULE" -k uvicorn.workers.UvicornWorker
-exec fastapi run /code/app/app.py --port 8000
+exec fastapi run /code/app/app.py --port "${FASTAPI_PORT}"

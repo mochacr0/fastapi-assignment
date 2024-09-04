@@ -22,8 +22,7 @@ def pg_utcnow(element, compiler, **kw):
 def get_connection_url() -> str:
     return (
         f"{app_settings.DATABASE_SCHEME}://{app_settings.DATABASE_USERNAME}"
-        f":{app_settings.DATABASE_PASSWORD}@{app_settings.DATABASE_HOST}"
-        f":{app_settings.DATABASE_PORT}/{app_settings.DATABASE_NAME}"
+        f":{app_settings.DATABASE_PASSWORD}@{app_settings.DATABASE_HOST}/{app_settings.DATABASE_NAME}"
     )
 
 

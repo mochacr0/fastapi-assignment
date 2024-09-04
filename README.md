@@ -50,7 +50,7 @@ docker compose up
 6. For demonstration purposes, you can use the following credentials to login:
 
    |          |   User   |  Admin   | 
-                        | :-------:|:--------:|:--------:| 
+   | :-------:|:--------:|:--------:| 
    | Username |  `user`  | `admin`  |
    | Password | `string` | `string` |
 
